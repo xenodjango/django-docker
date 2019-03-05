@@ -14,6 +14,9 @@ COPY requirements.txt ./
 # Get pip to download and install requirements:
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN touch /srv/logs/gunicorn.log
+RUN touch /srv/logs/access.log
+RUN tail -n 0 -f /srv/logs/*.log &
 
 # Expose ports
 EXPOSE 8000
@@ -21,9 +24,6 @@ EXPOSE 8000
 # default command to execute    
 CMD python manage.py migrate                  # Apply database migrations
 CMD python manage.py collectstatic --noinput  # Collect static files
-CMD touch /srv/logs/gunicorn.log
-CMD touch /srv/logs/access.log
-CMD tail -n 0 -f /srv/logs/*.log &
 CMD echo Starting Gunicorn.
 CMD exec gunicorn djangoapp.wsgi:application --bind 0.0.0.0:8000 --workers 3 --log-level=info --log-file=/srv/logs/gunicorn.log --access-logfile=/srv/logs/access.log "$@"
 
