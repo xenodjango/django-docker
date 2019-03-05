@@ -119,6 +119,8 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 print('STATIC_ROOT', STATIC_ROOT)
-STATIC_URL = '/static/'
+STATIC_URL = os.path.join(STATIC_ROOT, '/static/')
+print('STATIC_URL', STATIC_URL)
+#STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 INTERNAL_IPS = ['127.0.0.1']
