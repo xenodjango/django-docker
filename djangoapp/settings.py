@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'djangoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'aws-pg-docker',
+        'NAME': 'default',
         'USER': 'postgres',
         'PASSWORD': 'docker',
         'HOST': 'ec2-18-219-57-133.us-east-2.compute.amazonaws.com',
