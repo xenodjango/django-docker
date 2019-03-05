@@ -1,4 +1,6 @@
-#requirements.txt
-
 Django
 gunicorn
+whitenoise
+djangorestframework
+django-debug-toolbar
+psycopg2
