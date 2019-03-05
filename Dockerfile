@@ -14,6 +14,7 @@ COPY requirements.txt ./
 # Get pip to download and install requirements:
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN mkdir /srv/logs/
 RUN touch /srv/logs/gunicorn.log
 RUN touch /srv/logs/access.log
 RUN tail -n 0 -f /srv/logs/*.log &
