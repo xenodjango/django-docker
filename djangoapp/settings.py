@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'todo_app.todo',
+    'einvoice_app.einvoice',
 ]
 
 MIDDLEWARE = [

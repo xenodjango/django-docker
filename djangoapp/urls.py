@@ -19,9 +19,13 @@ from django.conf import settings
 from django.conf.urls import include, url
 from rest_framework.routers import DefaultRouter
 from todo_app.todo.views import TaskViewSet
+from einvoice_app.einvoice.views import HelloViewSet
+
 admin.autodiscover()
 router = DefaultRouter()
-router.register(r"todo", TaskViewSet)
+router.register(r"todo", TaskViewSet, base_name='todo')
+router.register(r"einvoice", HelloViewSet, base_name='hello')
+
 urlpatterns = [
 	path('', include(router.urls)),
     path('admin/', admin.site.urls),
