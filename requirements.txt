@@ -3,6 +3,6 @@ gunicorn
 whitenoise
 djangorestframework
 django-debug-toolbar
-psycopg2
 requests
 python-decouple
+psycopg2-binary
